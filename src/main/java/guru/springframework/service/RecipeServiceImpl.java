@@ -4,7 +4,8 @@ import guru.springframework.domain.Recipe;
 import guru.springframework.repository.RecipeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -16,7 +17,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public List<Recipe> getAllRecipes() {
-        return (List<Recipe>) recipeRepository.findAll();
+    public Set<Recipe> getAllRecipes() {
+        Set<Recipe> recipes = new HashSet<>();
+        recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
+        return recipes;
     }
 }

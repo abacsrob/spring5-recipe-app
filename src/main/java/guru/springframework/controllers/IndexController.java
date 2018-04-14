@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by jt on 6/1/17.
@@ -22,7 +22,7 @@ public class IndexController {
 
     @RequestMapping({"", "/", "/index"})
     public String getIndexPage(Model model){
-        List<Recipe> recipes = recipeService.getAllRecipes();
+        Set<Recipe> recipes = recipeService.getAllRecipes();
         if (recipes != null && !recipes.isEmpty()) {
             model.addAttribute("recipes", recipes);
         }
