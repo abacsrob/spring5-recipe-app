@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recipe Home</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="text-center">My Recipes!!!</h1>
+<div class="container">
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th class="col-md-1">ID</th>
+            <th class="col-md-11">Description</th>
+        </tr>
+        <tr th:each="recipe: ${recipes}" style="font-size: 12px;">
+            <td class="col-md-1" th:text="${recipe.id}">Recipe ID</td>
+            <td class="col-md-11">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span th:text="${recipe.description}">Recipe description</span>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong>Difficulty:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <span th:text="${recipe.difficulty}">Recipe difficulty</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong>Recipe ingredients:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row" th:each="ingredient: ${recipe.ingredients}">
+                                    <div class="col-md-12">
+                                        <span th:text="${ingredient.amount}">Amount</span>
+                                        <span th:text="${ingredient.uom.uom}">Uom</span>
+                                        <span th:text="${ingredient.description}">Description</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong>Recipe directions:</strong>
+                            </div>
+                            <div class="col-md-10 text-justify">
+                                <span th:text="${recipe.directions}">Recipe directions</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong>Recipe notes:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <span th:text="${recipe.notes.recipeNotes}">Recipe notes</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <strong>Recipe URL:</strong>
+                            </div>
+                            <div class="col-md-10">
+                                <span th:text="${recipe.url}">Recipe URL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

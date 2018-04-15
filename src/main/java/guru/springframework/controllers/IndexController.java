@@ -16,7 +16,7 @@ import java.util.Set;
 @Controller
 public class IndexController {
 
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     public IndexController(RecipeService recipeService) {
         this.recipeService = recipeService;
@@ -26,9 +26,18 @@ public class IndexController {
     public String getIndexPage(Model model){
         log.debug("In the controller layer with slf4j ...");
         Set<Recipe> recipes = recipeService.getAllRecipes();
-        if (recipes != null && !recipes.isEmpty()) {
+        if (recipes != null) {
             model.addAttribute("recipes", recipes);
         }
         return "index";
+    }
+
+    @RequestMapping({"/detailed"})
+    public String getDetailedRecipes(Model model){
+        Set<Recipe> recipes = recipeService.getAllRecipes();
+        if (recipes != null) {
+            model.addAttribute("recipes", recipes);
+        }
+        return "recipes-detailed";
     }
 }
