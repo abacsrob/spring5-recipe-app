@@ -28,13 +28,13 @@
                             <div class="col-md-2">
                                 <strong>Difficulty:</strong>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <span th:text="${recipe.difficulty}">Recipe difficulty</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-2"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <hr/>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                             <div class="col-md-2">
                                 <strong>Recipe ingredients:</strong>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <div class="row" th:each="ingredient: ${recipe.ingredients}">
                                     <div class="col-md-12">
                                         <span th:text="${ingredient.amount}">Amount</span>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <hr/>
                             </div>
                         </div>
@@ -62,13 +62,13 @@
                             <div class="col-md-2">
                                 <strong>Recipe directions:</strong>
                             </div>
-                            <div class="col-md-10 text-justify">
+                            <div class="col-md-8 text-justify">
                                 <span th:text="${recipe.directions}">Recipe directions</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-2"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <hr/>
                             </div>
                         </div>
@@ -76,13 +76,13 @@
                             <div class="col-md-2">
                                 <strong>Recipe notes:</strong>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8 text-justify">
                                 <span th:text="${recipe.notes.recipeNotes}">Recipe notes</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-2"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <hr/>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="col-md-2">
                                 <strong>Recipe URL:</strong>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <span th:text="${recipe.url}">Recipe URL</span>
                             </div>
                         </div>
